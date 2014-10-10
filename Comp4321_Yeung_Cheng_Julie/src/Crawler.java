@@ -6,6 +6,7 @@ Section:
 Email:
 */
 import java.util.Vector;
+
 import org.htmlparser.beans.StringBean;
 import org.htmlparser.Node;
 import org.htmlparser.NodeFilter;
@@ -15,8 +16,11 @@ import org.htmlparser.filters.NodeClassFilter;
 import org.htmlparser.tags.LinkTag;
 import org.htmlparser.util.NodeList;
 import org.htmlparser.util.ParserException;
+
 import java.util.StringTokenizer;
+
 import org.htmlparser.beans.LinkBean;
+
 import java.net.URL;
 
 
@@ -70,13 +74,67 @@ public class Crawler
 		return link_str;
 	}
 	
-	public static void main (String[] args)
+	
+	/* 
+		input: url is the starting url for crawler
+		 	   url_number is the number of urls for crawler
+	*/
+	public static void CrawlerByUrl(String url, int url_number)
 	{
 		try
 		{
-			Crawler crawler = new Crawler("http://www.cs.ust.hk");
-
+			int count = 0;
+			// the queue to store url
+			String[] queue = new String[url_number];
+			queue[0] = new String(url);
+			// for stopword
+			StopStem stopStem = new StopStem("stopwords.txt");
+			// to initialize the database
+			database data = new database("comp4321");
 			
+			// to process each url
+			while(count < url_number)
+			{
+				String str = queue[count];
+				int page_id = data.check_pagetable(str);
+				// if the page is not in the page table
+				if(page_id == -1)
+				{
+					page_id = data.put_pagetable(str);
+					
+				}
+				// if the page is in the page table already
+				else
+				{
+					
+				}
+				/*
+				// get the words in the page
+				Crawler crawler = new Crawler(queue[count]);
+				Vector<String> words = crawler.extractWords();
+				// remove the stopword
+				*/
+			}
+		}
+		catch (Exception e)
+	    {
+			e.printStackTrace();
+	    }
+	}
+	
+	public static void main(String[] args)
+	{
+		try
+		{
+			
+
+			URL url = new URL("http://www.xyz.com/documents/files/xyz-china.pdf");
+
+		    System.out.println("URL:- " +url);
+		    URLConnection connection = url.openConnection();
+
+		    Crawler crawler = new Crawler("http://www.cs.ust.hk");
+		    System.out.println(connection.getHeaderField("Last-Modified"));
 			Vector<String> words = crawler.extractWords();		
 			
 			System.out.println("Words in "+crawler.url+":");
