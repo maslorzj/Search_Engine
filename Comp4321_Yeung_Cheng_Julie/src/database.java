@@ -42,7 +42,12 @@ public class database {
 	// if not, return -1
 	public int check_pagetable(String url) throws IOException
 	{
-		return (Integer)page_table.get(url);
+		Integer x = (Integer)page_table.get(url);
+		if(x == null)
+			return -1;
+		else
+			return x;
+		
 	}
 
 	// to put the url into page table
@@ -51,4 +56,21 @@ public class database {
 		page_table.put(url, page_table_size++);
 		return page_table_size-1;
 	}
+	
+	public void read_pagetable() throws IOException
+	{
+		FastIterator iterate = page_table.keys();
+		String key;
+		while((key = (String)iterate.next()) != null)
+		{
+			// print the key and value
+			System.out.println(key + " : " + page_table.get(key));
+		}
+	}
+	
+	public void finalize() throws IOException
+	{
+		recman.commit();
+		recman.close();				
+	} 
 }

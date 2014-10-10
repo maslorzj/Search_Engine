@@ -18,11 +18,20 @@ import org.htmlparser.util.NodeList;
 import org.htmlparser.util.ParserException;
 
 import java.util.StringTokenizer;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.htmlparser.beans.LinkBean;
 
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URL;
+import java.net.URLConnection;
 
+import javax.swing.text.html.HTMLDocument;
+import javax.swing.text.html.HTMLEditorKit;
 
 public class Crawler
 {
@@ -84,6 +93,7 @@ public class Crawler
 		try
 		{
 			int count = 0;
+			int flag = 0;
 			// the queue to store url
 			String[] queue = new String[url_number];
 			queue[0] = new String(url);
@@ -93,20 +103,38 @@ public class Crawler
 			database data = new database("comp4321");
 			
 			// to process each url
-			while(count < url_number)
+			while(flag < url_number)
 			{
-				String str = queue[count];
+				String str = queue[flag];
+				flag++;
 				int page_id = data.check_pagetable(str);
 				// if the page is not in the page table
 				if(page_id == -1)
 				{
 					page_id = data.put_pagetable(str);
+					Crawler crawler = new Crawler(str);
+					Vector<String> links = crawler.extractLinks();
+					System.out.println("Links in "+crawler.url+":");
+					System.out.println("number of links: " + links.size());
+					for(int i = 0; i < links.size(); i++)	
+					{
+						int id = data.check_pagetable(links.get(i));
+						if(id == -1)
+						{
+							if(count >= url_number-1)
+								break;
+							
+							count++;
+							queue[count] = links.get(i);
+						}
+					}
+					
 					
 				}
 				// if the page is in the page table already
 				else
 				{
-					
+					System.out.println("true:" + flag);
 				}
 				/*
 				// get the words in the page
@@ -115,6 +143,7 @@ public class Crawler
 				// remove the stopword
 				*/
 			}
+			data.finalize();
 		}
 		catch (Exception e)
 	    {
@@ -122,17 +151,37 @@ public class Crawler
 	    }
 	}
 	
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) throws Exception
+	{	/*
+		URL url = new URL("http://www.cse.ust.hk");
+		
+	    System.out.println("URL:- " +url);
+	    URLConnection connection = url.openConnection();
+	    DataInputStream dis = new DataInputStream(connection.getInputStream());
+	    String html = "", tmp = "";
+	    while ((tmp = dis.readLine()) != null) {
+	      html += " " + tmp;
+	    }
+	    dis.close();
+	    System.out.println("size of page: " + html.length());
+	    html = html.replaceAll("\\s+", " ");
+	    Pattern p = Pattern.compile("<title>(.*?)</title>");
+	    Matcher m = p.matcher(html);
+	    while (m.find() == true) {
+	      System.out.println("1:" + m.group(1));
+	    }
+	    System.out.println(connection.getHeaderField("Date"));
+	   */
+		
+		CrawlerByUrl("http://www.cse.ust.hk/", 30);
+		/*database data = new database("comp4321");
+		data.read_pagetable();*/
+/*
 		try
 		{
 			
 
-			URL url = new URL("http://www.xyz.com/documents/files/xyz-china.pdf");
-
-		    System.out.println("URL:- " +url);
-		    URLConnection connection = url.openConnection();
-
+			
 		    Crawler crawler = new Crawler("http://www.cs.ust.hk");
 		    System.out.println(connection.getHeaderField("Last-Modified"));
 			Vector<String> words = crawler.extractWords();		
@@ -156,7 +205,7 @@ public class Crawler
         {
 			e.printStackTrace();
         }
-		
+		*/
 	}
 }
 	
