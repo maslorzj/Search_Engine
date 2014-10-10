@@ -86,4 +86,20 @@ public class database {
 		recman.commit();
 		recman.close();				
 	} 
+	
+	// according to page ID, return its date
+	public String get_proptable(int pageID)
+	{
+		return "";
+	}
+	
+	// put the property of one new page ID
+	public void put_proptable(int pageID, String title, String Date, int size)
+	{
+	}
+	
+	// update the property of one new page ID
+	public void update_proptable(int pageID, String title, String Date, int size)
+	{
+	}
 }

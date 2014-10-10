@@ -173,7 +173,7 @@ public class Crawler
 	    System.out.println(connection.getHeaderField("Date"));
 	   */
 		
-		CrawlerByUrl("http://www.cse.ust.hk/", 30);
+		CrawlerByUrl("h", 30);
 		/*database data = new database("comp4321");
 		data.read_pagetable();*/
 /*
