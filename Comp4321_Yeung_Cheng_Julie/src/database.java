@@ -13,7 +13,8 @@ public class database {
 	// the table of url - pageID
 	private HTree page_table;
 	private int page_table_size = 0;
-	
+	private HTree prop_table;
+
 	
 	// constructor of database
 	// input is the database's name
@@ -36,6 +37,18 @@ public class database {
 		{
 			page_table_size++;
 		}
+		
+		// to read the property table
+		recid = recman.getNamedObject("prop_table");	
+		if (recid != 0)
+			prop_table = HTree.load(recman, recid);
+		else
+		{
+			prop_table = HTree.createInstance(recman);
+			recman.setNamedObject("porp_table", page_table.getRecid());
+		}
+	
+		
 	}
 	
 	// to check the url is in the page table or not, if it is in, return the id
