@@ -216,3 +216,6 @@ pip-log.txt
 .mr.developer.cfg
 Comp4321_Yeung_Cheng_Julie/.classpath
 Comp4321_Yeung_Cheng_Julie/.classpath
+Comp4321_Yeung_Cheng_Julie/.classpath
+*.classpath
+Comp4321_Yeung_Cheng_Julie/bin/Crawler.class

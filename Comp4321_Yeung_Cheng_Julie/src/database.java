@@ -1,12 +1,16 @@
+package project;
+
 import jdbm.RecordManager;
 import jdbm.RecordManagerFactory;
 import jdbm.htree.HTree;
 import jdbm.helper.FastIterator;
 
 import java.util.Vector;
+import java.util.regex.PatternSyntaxException;
 import java.io.IOException;
 import java.io.Serializable;
 
+import java.lang.*;
 public class database {
 	// the database's name
 	private RecordManager recman;
@@ -124,6 +128,43 @@ public class database {
 		recman.close();				
 	} 
 	
+<<<<<<< HEAD
+	// according to page ID, return its date, it there's no page ID return null
+	public String get_proptable(int pageID) throws IOException
+	{	
+		try{
+			String date_prop_table; 
+			String result;
+			result = (String)prop_table.get(pageID);
+			String cmp = "\n";
+			if( result != null){
+				String string_getprop[] = result.split( cmp );
+				date_prop_table = string_getprop[0];
+				return date_prop_table;
+			}
+		}
+		catch(PatternSyntaxException e){
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	// put the property of one new page ID
+	// result looks like this = (date+"\n"+title+"\n"+size)
+	public void put_proptable(int pageID, String title, String date, int size) throws IOException
+	{	
+		// check if there's pageID in proptable
+		//String string_proptable = String.join("\n", date, title, size);
+		String string_proptable = date+"\n"+title+"\n"+size;
+		String check = (String)prop_table.get(pageID);
+		if( check == null){
+			prop_table.put(pageID, string_proptable);	
+		}
+		else{
+			prop_table.remove(pageID);
+			prop_table.put(pageID, string_proptable);
+		}			
+=======
 	// according to page ID, return its date
 	public String get_proptable(int pageID)
 	{
@@ -138,6 +179,7 @@ public class database {
 	// update the property of one new page ID
 	public void update_proptable(int pageID, String title, String Date, int size)
 	{
+>>>>>>> origin/master
 	}
 	
 	

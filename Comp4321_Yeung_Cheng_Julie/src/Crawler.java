@@ -5,6 +5,8 @@ Student ID:
 Section:
 Email:
 */
+package project;
+
 import java.util.Vector;
 
 import org.htmlparser.beans.StringBean;
@@ -134,6 +136,10 @@ public class Crawler
 				// if the page is in the page table already
 				else
 				{
+<<<<<<< HEAD
+					
+=======
+>>>>>>> origin/master
 					System.out.println("true:" + flag);
 				}
 				/*
