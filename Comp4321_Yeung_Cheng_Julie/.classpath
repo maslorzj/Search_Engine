@@ -2,12 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-	<classpathentry kind="lib" path="filterbuilder.jar"/>
-	<classpathentry kind="lib" path="htmllexer.jar"/>
-	<classpathentry kind="lib" path="htmlparser.jar"/>
-	<classpathentry kind="lib" path="jdbm-1.0.jar"/>
-	<classpathentry kind="lib" path="junit.jar"/>
-	<classpathentry kind="lib" path="sax2.jar"/>
-	<classpathentry kind="lib" path="thumbelina.jar"/>
+	<classpathentry kind="lib" path="F:/苏成/新建文件夹/jdbm-1.0/lib/jdbm-1.0.jar"/>
+	<classpathentry kind="lib" path="F:/苏成/新建文件夹/htmlparser1_6/lib/htmlparser.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
