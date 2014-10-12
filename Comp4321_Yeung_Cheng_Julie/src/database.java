@@ -91,6 +91,7 @@ public class database {
 		recman.close();				
 	} 
 	
+<<<<<<< HEAD
 	// according to page ID, return its date, it there's no page ID return null
 	public String get_proptable(int pageID) throws IOException
 	{	
@@ -126,5 +127,21 @@ public class database {
 			prop_table.remove(pageID);
 			prop_table.put(pageID, string_proptable);
 		}			
+=======
+	// according to page ID, return its date
+	public String get_proptable(int pageID)
+	{
+		return "";
+	}
+	
+	// put the property of one new page ID
+	public void put_proptable(int pageID, String title, String Date, int size)
+	{
+	}
+	
+	// update the property of one new page ID
+	public void update_proptable(int pageID, String title, String Date, int size)
+	{
+>>>>>>> origin/master
 	}
 }

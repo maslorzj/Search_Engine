@@ -136,7 +136,10 @@ public class Crawler
 				// if the page is in the page table already
 				else
 				{
+<<<<<<< HEAD
 					
+=======
+>>>>>>> origin/master
 					System.out.println("true:" + flag);
 				}
 				/*
