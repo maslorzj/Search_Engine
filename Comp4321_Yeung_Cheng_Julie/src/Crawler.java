@@ -173,7 +173,7 @@ public class Crawler
 	    System.out.println(connection.getHeaderField("Date"));
 	   */
 		
-		CrawlerByUrl("h", 30);
+		//CrawlerByUrl("h", 30);
 		/*database data = new database("comp4321");
 		data.read_pagetable();*/
 /*
@@ -206,6 +206,12 @@ public class Crawler
 			e.printStackTrace();
         }
 		*/
+		
+		database data = new database("comp4321");
+		data.add_parent(1,2);
+		data.add_parent(2,4);
+		data.add_parent(1, 3);
+		System.out.println(data.get_parents(1));
 	}
 }
 	
