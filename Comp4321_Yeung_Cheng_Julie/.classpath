@@ -2,7 +2,12 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-	<classpathentry kind="lib" path="F:/苏成/新建文件夹/jdbm-1.0/lib/jdbm-1.0.jar"/>
-	<classpathentry kind="lib" path="F:/苏成/新建文件夹/htmlparser1_6/lib/htmlparser.jar"/>
+	<classpathentry kind="lib" path="C:/adt-bundle-windows-x86_64-20140624/adt-bundle-windows-x86_64-20140624/workspace_websearch/jdbm-1.0/jdbm-1.0/lib/jdbm-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/adt-bundle-windows-x86_64-20140624/adt-bundle-windows-x86_64-20140624/workspace_web_lab2/htmlparser1_6_20060610/htmlparser1_6/lib/filterbuilder.jar"/>
+	<classpathentry kind="lib" path="C:/adt-bundle-windows-x86_64-20140624/adt-bundle-windows-x86_64-20140624/workspace_web_lab2/htmlparser1_6_20060610/htmlparser1_6/lib/htmllexer.jar"/>
+	<classpathentry kind="lib" path="C:/adt-bundle-windows-x86_64-20140624/adt-bundle-windows-x86_64-20140624/workspace_web_lab2/htmlparser1_6_20060610/htmlparser1_6/lib/htmlparser.jar"/>
+	<classpathentry kind="lib" path="C:/adt-bundle-windows-x86_64-20140624/adt-bundle-windows-x86_64-20140624/workspace_web_lab2/htmlparser1_6_20060610/htmlparser1_6/lib/junit.jar"/>
+	<classpathentry kind="lib" path="C:/adt-bundle-windows-x86_64-20140624/adt-bundle-windows-x86_64-20140624/workspace_web_lab2/htmlparser1_6_20060610/htmlparser1_6/lib/sax2.jar"/>
+	<classpathentry kind="lib" path="C:/adt-bundle-windows-x86_64-20140624/adt-bundle-windows-x86_64-20140624/workspace_web_lab2/htmlparser1_6_20060610/htmlparser1_6/lib/thumbelina.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
